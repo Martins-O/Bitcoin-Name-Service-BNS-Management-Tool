@@ -7,6 +7,7 @@ import { useBNS } from '@/hooks/useBNS';
 import { BNSDomain } from '@/types/bns';
 import { Card, CardBody, CardHeader } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { ExpiryTrackerComponent } from '@/components/bns/ExpiryTracker';
 
 export default function PortfolioPage() {
   const { address, isConnected } = useWallet();
@@ -130,6 +131,12 @@ export default function PortfolioPage() {
             </CardBody>
           </Card>
         </div>
+
+        {domains.length > 0 && (
+          <div className="mb-8">
+            <ExpiryTrackerComponent domains={domains} onRefresh={loadPortfolio} />
+          </div>
+        )}
 
         <Card>
           <CardHeader>

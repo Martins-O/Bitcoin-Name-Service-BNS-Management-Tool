@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { WalletConnect } from './WalletConnect';
+import { NotificationBell } from './NotificationBell';
 
 export function Header() {
   return (
@@ -25,6 +26,12 @@ export function Header() {
               Search
             </Link>
             <Link
+              href="/bulk-register"
+              className="text-gray-700 hover:text-orange-500 transition-colors"
+            >
+              Bulk Register
+            </Link>
+            <Link
               href="/portfolio"
               className="text-gray-700 hover:text-orange-500 transition-colors"
             >
@@ -38,7 +45,10 @@ export function Header() {
             </Link>
           </nav>
 
-          <WalletConnect />
+          <div className="flex items-center gap-4">
+            <NotificationBell />
+            <WalletConnect />
+          </div>
         </div>
       </div>
     </header>
